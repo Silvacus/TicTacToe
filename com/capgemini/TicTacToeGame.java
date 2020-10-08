@@ -2,7 +2,9 @@ package com.capgemini;
 
 import java.util.Scanner;
 public class TicTacToeGame {
-
+	static Scanner sc=new Scanner(System.in);
+    static char PLAYER;
+    static char COMPUTER;
 	/*usecase1*/
 	public static char[] boardCreate() {
 		char[] board=new char[10];
@@ -13,8 +15,7 @@ public class TicTacToeGame {
 	}
 	/*usecase2*/
 	public static void chooseXO(char choice) {
-		char PLAYER;
-		char COMPUTER;
+		
 		if(choice=='x') {
 			System.out.println("Player has choosen x");
 			PLAYER='x';
@@ -38,6 +39,22 @@ public class TicTacToeGame {
 		System.out.println(" "+boardPrint[7]+" | "+boardPrint[8]+" | "+boardPrint[9]);
 		
 	}
+	/*usecase4*/
+	public static boolean checkIfFree(char board[],int pos,char PLAYER) {
+		if(board[pos]==' ') {
+			return true;
+		}
+		else {
+			return false;
+		}
+		
+	}
+	public static int UserDesiredLocation()
+	{
+		System.out.println("Enter Desired Location in the board");
+		 int pos=sc.nextInt();
+		 return pos;
+	}
 	
 	public static void main(String[] args) {
 		System.out.println("Welcome to Tic Tac Toe");
@@ -47,6 +64,20 @@ public class TicTacToeGame {
 		 char choice=sc.next().charAt(0);
 		 chooseXO(choice);
 		 printBoard(board);
+		while(true)
+		{
+			 int index=UserDesiredLocation();
+			 if(checkIfFree(board,index,PLAYER))
+			 {
+				 System.out.println("done");
+				 break;
+				 
+			 }
+			 else
+			 {
+				 System.out.println("Enter Desired Location in the board"); 
+			 }	 
+		}
 		 sc.close();
 		
 		
