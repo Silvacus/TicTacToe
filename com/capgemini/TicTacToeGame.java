@@ -40,14 +40,26 @@ public class TicTacToeGame {
 		
 	}
 	/*usecase4*/
-	public static boolean checkIfFree(char board[],int pos,char PLAYER) {
-		if(board[pos]==' ') {
-			return true;
+	public static boolean checkIfFree(char board[]) {
+		    boolean check=true;
+		    boolean condition=true;
+			while(condition)
+			{
+				 int index=UserDesiredLocation();
+				 if(board[index]==' ')
+				 {
+					 condition=false;
+					 check=true;
+				 }
+				 else
+				 {
+					 System.out.println("Enter Desired Location in the board"); 
+					 int ind=UserDesiredLocation();
+					 check=false;
+				 }
+				 
 		}
-		else {
-			return false;
-		}
-		
+		return check;
 	}
 	public static int UserDesiredLocation()
 	{
@@ -64,23 +76,10 @@ public class TicTacToeGame {
 		 char choice=sc.next().charAt(0);
 		 chooseXO(choice);
 		 printBoard(board);
-		while(true)
-		{
-			 int index=UserDesiredLocation();
-			 if(checkIfFree(board,index,PLAYER))
-			 {
-				 System.out.println("done");
-				 break;
-				 
-			 }
-			 else
-			 {
-				 System.out.println("Enter Desired Location in the board"); 
-			 }	 
-		}
+		 boolean v=checkIfFree(board);
+		 System.out.println(v);
 		 sc.close();
 		
-		
+	}
 	}
 
-}
