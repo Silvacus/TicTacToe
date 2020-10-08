@@ -5,6 +5,7 @@ public class TicTacToeGame {
 	static Scanner sc=new Scanner(System.in);
     static char PLAYER;
     static char COMPUTER;
+    static int index;
 	/*usecase1*/
 	public static char[] boardCreate() {
 		char[] board=new char[10];
@@ -45,7 +46,7 @@ public class TicTacToeGame {
 		    boolean condition=true;
 			while(condition)
 			{
-				 int index=UserDesiredLocation();
+				 index=UserDesiredLocation();
 				 if(board[index]==' ')
 				 {
 					 condition=false;
@@ -54,7 +55,7 @@ public class TicTacToeGame {
 				 else
 				 {
 					 System.out.println("Enter Desired Location in the board"); 
-					 int ind=UserDesiredLocation();
+					 index=UserDesiredLocation();
 					 check=false;
 				 }
 				 
@@ -67,6 +68,20 @@ public class TicTacToeGame {
 		 int pos=sc.nextInt();
 		 return pos;
 	}
+	/*usecase5*/
+	public static void makeDesiredMove(int index,char user,char[] board)
+	
+	{
+		if(board[index]==' ')
+		{
+			board[index]=user;
+		}
+		else
+		{
+			System.out.println("Unable to make move");
+		}	
+	}
+	
 	
 	public static void main(String[] args) {
 		System.out.println("Welcome to Tic Tac Toe");
@@ -77,7 +92,11 @@ public class TicTacToeGame {
 		 chooseXO(choice);
 		 printBoard(board);
 		 boolean v=checkIfFree(board);
-		 System.out.println(v);
+		 if(v)
+		 {
+			 makeDesiredMove(index,PLAYER,board); 
+			
+		 }
 		 sc.close();
 		
 	}
