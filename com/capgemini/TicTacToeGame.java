@@ -29,6 +29,15 @@ public class TicTacToeGame {
 		}
 	}
 	
+	/*usecase3*/
+	public static void printBoard(char[] boardPrint) {
+		System.out.println(" "+boardPrint[1]+" | "+boardPrint[2]+" | "+boardPrint[3]);
+		System.out.println("-----------");
+		System.out.println(" "+boardPrint[4]+" | "+boardPrint[5]+" | "+boardPrint[6]);
+		System.out.println("-----------");
+		System.out.println(" "+boardPrint[7]+" | "+boardPrint[8]+" | "+boardPrint[9]);
+		
+	}
 	
 	public static void main(String[] args) {
 		System.out.println("Welcome to Tic Tac Toe");
@@ -37,7 +46,7 @@ public class TicTacToeGame {
 		 Scanner sc=new Scanner(System.in);
 		 char choice=sc.next().charAt(0);
 		 chooseXO(choice);
-		 
+		 printBoard(board);
 		 sc.close();
 		
 		
